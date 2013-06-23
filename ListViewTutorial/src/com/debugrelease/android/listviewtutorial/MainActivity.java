@@ -33,7 +33,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
 
         ListView listView = (ListView)findViewById(R.id.listView);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, lakes);
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, lakes);
         listView.setAdapter(adapter);
 
     }

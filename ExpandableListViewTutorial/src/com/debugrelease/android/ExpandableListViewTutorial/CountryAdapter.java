@@ -25,8 +25,8 @@ public class CountryAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public int getChildrenCount(int childPosition) {
-        return countries.get(childPosition).getCities().size();
+    public int getChildrenCount(int groupPosition) {
+        return countries.get(groupPosition).getCities().size();
     }
 
     @Override
@@ -55,23 +55,23 @@ public class CountryAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getGroupView(int groupPosition, boolean b, View view, ViewGroup viewGroup) {
-        if (view == null) {
-            view = inflater.inflate(R.layout.simple_expandable_list_item_1, viewGroup, false);
+    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+        if (convertView == null) {
+            convertView = inflater.inflate(R.layout.simple_expandable_list_item_1, parent, false);
         }
 
-        ((TextView) view).setText(getGroup(groupPosition).toString());
-        return view;
+        ((TextView) convertView).setText(getGroup(groupPosition).toString());
+        return convertView;
     }
 
     @Override
-    public View getChildView(int groupPosition, int childPosition, boolean b, View view, ViewGroup viewGroup) {
-        if(view == null) {
-            view = inflater.inflate(R.layout.simple_list_item_1, viewGroup, false);
+    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+        if(convertView == null) {
+            convertView = inflater.inflate(R.layout.simple_list_item_1, parent, false);
         }
 
-        ((TextView)view).setText(getChild(groupPosition,childPosition).toString());
-        return view;
+        ((TextView)convertView).setText(getChild(groupPosition,childPosition).toString());
+        return convertView;
     }
 
     @Override

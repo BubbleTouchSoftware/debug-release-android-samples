@@ -18,5 +18,4 @@ public class Country {
     public List<String> getCities() {
         return Cities;
     }
-
 }
